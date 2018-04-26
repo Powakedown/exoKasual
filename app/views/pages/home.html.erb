@@ -1,7 +1,7 @@
 <div class="banner">
   <div>
     <h1>Trouvez un bar à Bordeaux.</h1>
-    <%= simple_form_for :query, url: bars_path, method: :get do |f|%>
+    <%= simple_form_for :query, url: bars_map_path, method: :get do |f|%>
       <%= f.input :business, label: false %>
     <% end %>
   </div>

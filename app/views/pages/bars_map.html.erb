@@ -1,0 +1,31 @@
+<%= render "shared/menu" %>
+
+<div id="map"></div>
+
+<%= content_for :after_js do %>
+  <script>
+  function initMap() {
+    var markers = <%= @markersLatLng %>;
+    var markersZone = new google.maps.LatLngBounds();
+    var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 16,
+        center: { lat: markers[0][0], lng: markers[0][1] }
+    });
+
+    markers.forEach(function(latlng){
+
+      var latitude = latlng[0],
+        longitude = latlng[1];
+
+      var markerOptions = {
+        map: map,
+        position: new google.maps.LatLng(latitude, longitude)
+      };
+
+      var marker = new google.maps.Marker(markerOptions);
+      markersZone.extend(marker.getPosition());
+    });
+    // map.fitBounds( markersZone );
+  }
+  </script>
+<% end %>

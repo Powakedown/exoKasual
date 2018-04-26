@@ -1,0 +1,15 @@
+var barName = document.getElementById('name');
+var barCategory = document.getElementById('category');
+var barAddress = document.getElementById('address');
+var barPhone = document.getElementById('phone');
+var barRating = document.getElementById('rating');
+var barLink = document.getElementById('link');
+var barImage = document.getElementById('image');
+
+barName.innerHTML = '<%= @bar["name"] %>';
+barCategory.innerHTML = '<%= @bar["categories"][0]["alias"] %>';
+barAddress.innerHTML = '<%= @bar["location"]["address1"] %>';
+barPhone.innerHTML = '<%= @bar["display_phone"] %>';
+barRating.innerHTML = '<%= @bar["rating"] %>';
+barLink.href = '<%= @bar["url"] %>';
+barImage.src = '<%= @bar["image_url"] %>';

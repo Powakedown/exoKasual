@@ -1,4 +1,19 @@
 #map {
-  height: 400px;
+  height: calc( 100vh - 160px);
   width: 100%;
 }
+#menu {
+  height: 80px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  .btn {
+    margin-right: 10px;
+  }
+}
+// .container, .row, .col-sm-8, .col-sm-4 {
+//   border: 1px solid red;
+// }

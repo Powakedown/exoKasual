@@ -1,0 +1,40 @@
+<%= render "shared/menu" %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8">
+        <div class="row">
+          <%#= @bars.first["image_url"] %>
+          <% @bars.each do |bar| %>
+            <div class="col-xs-12 col-sm-4">
+              <%= link_to bar_details_path(bar), remote: true, class:"card-link" do %>
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= bar['image_url'] %>);">
+                  <div class="card-category"><%= bar["categories"][0]["alias"] %></div>
+                  <div class="card-description">
+                    <h2><%= bar["name"] %></h2>
+                    <p><%= bar["location"]["address1"] %></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div id="card-detailed">
+        <h2 id="name"><%= @bars.first["name"].capitalize %></h2>
+        <h4 id="category"><%= @bars.first["categories"][0]["alias"].capitalize %></h4>
+        <h4 id="address"><%= @bars.first["location"]["address1"] %></h4>
+        <h4 id="phone"><%= @bars.first["display_phone"]%></h4>
+        <h4 id="rating">Rating : <%= @bars.first["rating"] %></h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis rem illum inventore. Eaque in rerum natus provident a? Reiciendis vel assumenda eius laudantium architecto obcaecati impedit optio libero unde sint!</p>
+        <p><strong><%= link_to "Visiter Site web", @bars.first["url"], id:"link" %></strong></p>
+        <%= image_tag @bars.first["image_url"], id:"image" %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
