@@ -14,7 +14,7 @@
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjONuY8QCW-2kZHDEAjka6qdCEAxsGipA&callback=initMap" %>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" >
     </script>
     <%= yield(:after_js) %>
   </body>
